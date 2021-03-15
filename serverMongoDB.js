@@ -58,7 +58,6 @@ MongoClient.connect(url, function(err, db){
 //connect to database through Mongoose
 mongoose.connect(
     'mongodb://127.0.0.1:27017/shoppinglist',
-    //'mongodb://testboy:rhino94@ds155396.mlab.com:55396/rest', 
     { useNewUrlParser: true },
     ()=> 
         console.log('connected to DB')
