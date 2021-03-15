@@ -33,4 +33,14 @@ Two codes for getting and adding the data are included. For a successul setup, f
 
 Type in the terminal:
 
+### Install Mongoose
+Mongoose makes it easier to connect to the database. I have added another method of connection to the database through Mongoose. First, install mongoose 
+
 npm install mongodb --save
+
+Require mongoose on the top of the page
+
+Call mongoose.connect to call the database.
+
+
+

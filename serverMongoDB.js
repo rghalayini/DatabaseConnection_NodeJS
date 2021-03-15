@@ -1,6 +1,9 @@
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://127.0.0.1:27017";
 
+const mongoose = require('mongoose');
+
+
 //to add data
 MongoClient.connect(url, function(err, db){
     if(err) throw err;
@@ -13,7 +16,7 @@ MongoClient.connect(url, function(err, db){
     });
 });
 
-//to retrieve a single data
+// //to retrieve a single data
 MongoClient.connect(url, function(err, db){
     if(err) throw err;
     var dbo = db.db("shoppinglist");
@@ -29,7 +32,7 @@ MongoClient.connect(url, function(err, db){
 MongoClient.connect(url, function(err, db){
     if(err) throw err;
     var dbo = db.db("shoppinglist");
-    dbo.collection("students").find().forEach(GetAllNames);
+    dbo.collection("Items").find().forEach(GetAllNames);
     db.close();
 
 });
@@ -37,6 +40,7 @@ MongoClient.connect(url, function(err, db){
 function GetAllNames(item){
     console.log(item.name);
 };
+
 
 //to delete an item in the collection
 MongoClient.connect(url, function(err, db){
@@ -51,3 +55,11 @@ MongoClient.connect(url, function(err, db){
 });
 
 
+//connect to database through Mongoose
+mongoose.connect(
+    'mongodb://127.0.0.1:27017/shoppinglist',
+    //'mongodb://testboy:rhino94@ds155396.mlab.com:55396/rest', 
+    { useNewUrlParser: true },
+    ()=> 
+        console.log('connected to DB')
+);
